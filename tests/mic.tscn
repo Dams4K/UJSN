@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5mkefjlm7hkq"]
+
+[ext_resource type="Script" path="res://tests/mic.gd" id="1_r1hhl"]
+
+[node name="mic" type="HBoxContainer"]
+script = ExtResource("1_r1hhl")
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Record"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="RecordButton" type="Button" parent="."]
+layout_mode = 2
+offset_right = 63.0
+offset_bottom = 31.0
+text = "Record"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 67.0
+offset_right = 108.0
+offset_bottom = 31.0
+text = "Play"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 112.0
+offset_right = 212.0
+offset_bottom = 31.0
+text_overrun_behavior = 1
+
+[connection signal="pressed" from="RecordButton" to="." method="_on_record_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

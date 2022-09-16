@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcbr5sfby67m2"]
+
+[ext_resource type="Script" path="res://player/Player.gd" id="1_8dkqq"]
+[ext_resource type="Texture2D" uid="uid://c5rnxjjgv82p" path="res://assets/textures/player.png" id="2_xhlpa"]
+[ext_resource type="PackedScene" uid="uid://he5j4ph54uyb" path="res://weapons/AK47.tscn" id="3_4kvwo"]
+
+[sub_resource type="Gradient" id="Gradient_foi67"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yt28s"]
+radius = 15.0
+height = 62.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8dkqq")
+
+[node name="DashParticules" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.3
+one_shot = true
+texture = ExtResource("2_xhlpa")
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_foi67")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xhlpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yt28s")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+drag_top_margin = 0.3
+drag_bottom_margin = 0.3
+editor_draw_drag_margin = true
+
+[node name="WeaponPosition" type="Marker2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="AK47" parent="WeaponPosition" instance=ExtResource("3_4kvwo")]
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

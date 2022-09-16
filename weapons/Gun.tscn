@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtx2ed0l8knea"]
+
+[ext_resource type="PackedScene" uid="uid://dp5wjg5325coi" path="res://weapons/BaseWeapon.tscn" id="1_dkh8e"]
+[ext_resource type="Texture2D" uid="uid://bba08ypinyeox" path="res://assets/textures/weapons/weapons.png" id="2_s2ep0"]
+
+[node name="Gun" instance=ExtResource("1_dkh8e")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_s2ep0")
+region_enabled = true
+region_rect = Rect2(1, 21, 14, 8)
+
+[node name="CPUParticles2D" parent="." index="1"]
+position = Vector2(7, -2)
+amount = 8
+lifetime = 0.75

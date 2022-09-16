@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp5wjg5325coi"]
+
+[ext_resource type="Script" path="res://weapons/BaseWeapon.gd" id="1_7j5hj"]
+[ext_resource type="Texture2D" uid="uid://17h046ih5653" path="res://assets/textures/particles/circle.png" id="2_jowac"]
+
+[sub_resource type="Curve" id="Curve_0qj53"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.436364), -1.34943, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_r4t4k"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.383234, 0.622755, 0.736527, 0.994012)
+colors = PackedColorArray(0.117647, 0.117647, 0.117647, 0, 0.0980392, 0.0980392, 0.0980392, 1, 0.117647, 0.117647, 0.117647, 1, 0.160784, 0.160784, 0.160784, 1, 0.257812, 0.257812, 0.257812, 0)
+
+[node name="BaseWeapon" type="Node2D"]
+script = ExtResource("1_7j5hj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+region_rect = Rect2(2, 3, 28, 11)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 32
+lifetime = 1.5
+speed_scale = 2.0
+randomness = 0.5
+lifetime_randomness = 0.1
+texture = ExtResource("2_jowac")
+gravity = Vector2(3, -10)
+orbit_velocity_max = 0.1
+tangential_accel_min = -7.0
+tangential_accel_max = 4.0
+damping_max = 5.0
+angle_min = -25.0
+angle_max = 25.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_0qj53")
+color_ramp = SubResource("Gradient_r4t4k")

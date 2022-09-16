@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbstx7dl4ejek"]
+
+[ext_resource type="Texture2D" uid="uid://8s5vbkcj6483" path="res://icon.png" id="1_kk0rb"]
+
+[node name="World" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_kk0rb")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 320)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player/Player.tscn")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node2D" parent="."]
