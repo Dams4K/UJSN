@@ -16,7 +16,7 @@ var direction_vector:= Vector2.ZERO
 @onready var dashTimer: Timer = $DashTimer
 @onready var dashParticules: CPUParticles2D = $DashParticules
 
-@onready var weaponPosition: Position2D = $WeaponPosition
+@onready var weaponPosition = $WeaponPosition
 
 func _input(event):
 	weaponPosition.look_at(get_global_mouse_position())

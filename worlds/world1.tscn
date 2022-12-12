@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbstx7dl4ejek"]
+[gd_scene load_steps=3 format=3 uid="uid://cbstx7dl4ejek"]
 
 [ext_resource type="Texture2D" uid="uid://8s5vbkcj6483" path="res://icon.png" id="1_kk0rb"]
+[ext_resource type="PackedScene" uid="uid://dcbr5sfby67m2" path="res://player/Player.tscn" id="2_5mdym"]
 
 [node name="World" type="Node2D"]
 
@@ -15,3 +16,6 @@ _spawnable_scenes = PackedStringArray("res://player/Player.tscn")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node2D" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource("2_5mdym")]
+position = Vector2(-13, 89)

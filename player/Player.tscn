@@ -35,7 +35,6 @@ wait_time = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-smoothing_enabled = true
 drag_top_margin = 0.3
 drag_bottom_margin = 0.3
 editor_draw_drag_margin = true
